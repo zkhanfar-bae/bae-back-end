@@ -81,10 +81,13 @@ app.post('/api/capture-context', async (req, res) => {
       }),
     });
 
-    const data = await bankResponse.json();
+   const data = await bankResponse.json();
 
-    if (!bankResponse.ok) {
-      console.error('[Backend] Bank returned error:', data);
+console.log('[Backend] Bank response status:', bankResponse.status);
+console.log('[Backend] Bank response data:', JSON.stringify(data));
+
+if (!bankResponse.ok) {
+  console.error('[Backend] Bank returned error:', data);
       return res.status(bankResponse.status).json({
         error: 'Bank API error',
         details: data,

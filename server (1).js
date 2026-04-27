@@ -33,7 +33,8 @@ app.post('/api/capture-context', async (req, res) => {
           'User-Agent':    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         },
         body: JSON.stringify({
-          targetOrigins: [body.origin, "https://z-khanfar-bae-com.onrender.com"],
+          // FIXED: Replaced undefined "body.origin" with "targetOrigin"
+          targetOrigins: [targetOrigin, "https://z-khanfar-bae-com.onrender.com"],
           totalAmount:   String(amount),
           currency:  "JOD",
         }),
